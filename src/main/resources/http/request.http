@@ -1,0 +1,47 @@
+### Add one user
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "email": "dina@gmail.com",
+  "password": "123456789"
+}
+
+###Add another user
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "email": "mig@gmail.com",
+  "password": "987654321"
+}
+
+###Get all users
+GET http://localhost:8080/api/users
+
+###Add one event
+
+POST http://localhost:8080/api/events
+Content-Type: application/json
+
+{
+  "title": "Lecture",
+  "date": "23.07.23",
+  "passed": "NOT_PASSED"
+}
+
+###Add another event
+POST http://localhost:8080/api/events
+Content-Type: application/json
+
+{
+  "title": "Concert",
+  "date": "28.07.23",
+  "passed": "NOT_PASSED"
+}
+
+###Get all events
+
+GET http://localhost:8080/api/events
+
