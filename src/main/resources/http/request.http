@@ -20,6 +20,32 @@ Content-Type: application/json
 ###Get all users
 GET http://localhost:8080/api/users
 
+###Get one user
+GET http://localhost:8080/api/users/1
+
+###DELETE one user
+DELETE http://localhost:8080/api/users/1
+
+###Update one user
+
+PUT http://localhost:8080/api/users/1
+Content-Type: application/json
+
+{
+  "newRole" : "MANAGER",
+  "newState" : "BANNED"
+}
+
+###Update another user
+
+PUT http://localhost:8080/api/users/1
+Content-Type: application/json
+
+{
+  "newRole" : "ADMIN",
+  "newState" : "BANNED"
+}
+
 ###Add one event
 
 POST http://localhost:8080/api/events
@@ -45,3 +71,32 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/events
 
+###Delete one event
+
+DELETE http://localhost:8080/api/events/1
+
+###Update one event
+
+PUT http://localhost:8080/api/events/1
+Content-Type: application/json
+
+{
+  "newTitle": "Party",
+  "newDate": "10.07.2010",
+  "newPassed": "IS_PASSED"
+}
+
+###Update another event
+
+PUT http://localhost:8080/api/events/3
+Content-Type: application/json
+
+{
+"newTitle": "Meeting",
+"newDate": "25.10.2025",
+"newPassed": "NOT_PASSED"
+}
+
+###Get one event
+
+GET http://localhost:8080/api/events/0

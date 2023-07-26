@@ -1,29 +1,43 @@
 package com.example.restapi2.controllers;
 
+import com.example.restapi2.controllers.api.UsersApi;
 import com.example.restapi2.dto.NewUserDto;
+import com.example.restapi2.dto.UpdateUserDto;
 import com.example.restapi2.dto.UserDto;
 import com.example.restapi2.dto.UsersDto;
 import com.example.restapi2.services.UsersService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/users")
-public class UsersController {
+
+public class UsersController implements UsersApi {
 
     private final UsersService usersService;
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public UserDto addUser(@RequestBody NewUserDto newUser) {
+    @Override
+    public UserDto addUser(NewUserDto newUser) {
         return usersService.addUser(newUser);
     }
-
-    @GetMapping
+    @Override
     public UsersDto getAllUsers() {
         return usersService.getAllUsers();
+    }
+
+    @Override
+    public UserDto deleteUser(Long userId) {
+        return usersService.deleteUser(userId);
+    }
+
+    @Override
+    public UserDto updateUser(Long userId, UpdateUserDto updateUser) {
+        return usersService.updateUser(userId, updateUser);
+    }
+
+    @Override
+    public UserDto getUser(Long userId) {
+        return usersService.getUser(userId);
     }
 }

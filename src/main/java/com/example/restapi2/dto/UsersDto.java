@@ -1,5 +1,6 @@
 package com.example.restapi2.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Schema(description = "Список пользователей")
 public class UsersDto {
+    @Schema(description = "Пользователи системы")
     private List<UserDto> users;
+
+    @Schema(description = "Общее количество пользователей", example = "1")
     private Integer count;
 }
